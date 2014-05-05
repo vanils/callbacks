@@ -2,7 +2,7 @@
 
 A simple library for javaScript callbacks. Does not have dependency on any other library. Allows adding, removing and firing callbacks. Should work on every browser and also with Node.
 
-### Quick start
+## Quick start
 
     <script type="text/javascript" src="callbacks.min.js"></script>
     <script type="text/javascript">
@@ -15,7 +15,7 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
     </script>
 
-### Adding callbacks
+## Adding callbacks
 
 #### Basic usage
 
@@ -35,7 +35,7 @@ A simple library for javaScript callbacks. Does not have dependency on any other
         // do something
     });
 
-### Firing callbacks
+## Firing callbacks
 
 #### Basic usage
 
@@ -62,7 +62,7 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
     C.fire('my-event');
     
-### Removing callbacks
+## Removing callbacks
 
 #### Basic usage
 
