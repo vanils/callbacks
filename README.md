@@ -1,6 +1,6 @@
 # Callbacks
 
-A simple library for javaScript callbacks. Does not have dependency on any other library. Allows adding, removing and firing callbacks. Should work on every browser and also with Node.
+A simple library for javaScript callbacks. Does not have dependency on any other library. Allows adding, removing and firing callbacks. Works also with Node.
 
 ## Quick start
 
