@@ -25,15 +25,25 @@ var Callbacks,
  * Adding Callbacks to window object if namespaces are available.
  *
  */
-if (!window.Callbacks && !window.C) {
-    Callbacks = window.Callbacks = window.C = {};
-} else if (!window.Callbacks) {
-    Callbacks = window.Callbacks = {};
-} else if (!window.C) {
-    Callbacks = window.C = {};
+if (typeof window !== 'undefined') {
+    if (!window.Callbacks && !window.C) {
+        Callbacks = window.Callbacks = window.C = {};
+    } else if (!window.Callbacks) {
+        Callbacks = window.Callbacks = {};
+    } else if (!window.C) {
+        Callbacks = window.C = {};
+    } else {
+        throw new Error('Namespaces \'Callbacks\' and \'C\' are already ' +
+            'taken on window object. Cannot load Callbacks.js.');
+    }
+
+/*
+ *
+ * If no window is present, assuming environment to be Node
+ *
+ */
 } else {
-    throw new Error('Namespaces \'Callbacks\' and \'C\' are already ' +
-        'taken on window object. Cannot load Callbacks.js.');
+    Callbacks = exports;
 }
 
 /*
@@ -303,4 +313,4 @@ Callbacks.fire = function (type, args) {
     }
 };
 
-}(window));
+}(typeof window !== 'undefined' ? window : undefined));
