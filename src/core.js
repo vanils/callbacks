@@ -82,7 +82,7 @@ Listener.prototype._alive = true;
 
 /*
  *
- * Every listener contains remove method, which removes listener. If type of
+ * Every listener contains remove method, which removes a listener. If type of
  * listener is looping it is not immediately removed from callbacks list. It is
  * just marked not-alive. It will not be fired after that.
  *
@@ -177,7 +177,7 @@ Callbacks.remove = function (selector) {
 
     /*
      *
-     * String selector deletes all listener of certain type.
+     * String selector deletes all listeners of certain type.
      *
      */
     if (typeof selector === 'string') {
@@ -186,7 +186,7 @@ Callbacks.remove = function (selector) {
 
             /*
              *
-             * If listener type is currently looping, all its listeners has to
+             * If listener type is currently looping, all of its listeners has
              * to be marked dead. They cannot be removed immediately.
              *
              */
@@ -197,7 +197,7 @@ Callbacks.remove = function (selector) {
 
             /*
              *
-             * If listener type is not currently looping, list can easily be
+             * If listener type is not currently looping, list shall be easily
              * just wiped out.
              *
              */

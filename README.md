@@ -69,8 +69,8 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
 #### Remove within callback function
 
-    Callbacks.on('my-event', function (a, listener) {
-        listener.remove();
+    Callbacks.on('my-event', function (a, callback) {
+        callback.remove();
     });
     
     Callbacks.fire('my-event');
