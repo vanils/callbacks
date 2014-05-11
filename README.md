@@ -41,23 +41,18 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
     Callbacks.fire('my-event');
     
-#### Firing with single argument
+#### Firing with argument
 
     Callbacks.on('my-event', function (arg) {
-        console.log('Argument: ' + arg);
+        console.log(arg);
     });
 
     Callbacks.fire('my-event', 'Hello World!');
-    
-#### Firing with multiple arguments
-
-    Callbacks.on('my-event', function (arg1, arg2) {
-        console.log('1. argument: ' + arg1);
-        console.log('2. argument: ' + arg2);
+    Callbacks.fire('my-event', {
+        key1: 'value',
+        key2: 'value'
     });
-
-    Callbacks.fire('my-event', ['Hello', 'World!']);
-
+    
 #### Shorthand
 
     C.fire('my-event');
@@ -74,8 +69,8 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
 #### Remove within callback function
 
-    Callbacks.on('my-event', function () {
-        this.remove();
+    Callbacks.on('my-event', function (arg, listener) {
+        listener.remove();
     });
     
     Callbacks.fire('my-event');

@@ -6,7 +6,6 @@
 var Callbacks,
     callbacks,
     Listener,
-    isArray,
     loops,
     index;
 
@@ -120,22 +119,6 @@ if (typeof Array.prototype.indexOf === 'function') {
         }
 
         return -1;
-    };
-}
-
-/*
- *
- * Only modern browsers support isArray method.
- *
- */
-if (typeof Array.isArray === 'function') {
-    isArray = function (value) {
-        return Array.isArray(value);
-    };
-
-} else {
-    isArray = function (value) {
-        return Object.prototype.toString.call(value) === '[object Array]';
     };
 }
 
@@ -261,26 +244,12 @@ Callbacks.fire = function (type, args) {
 
     /*
      *
-     * If arguments are applied as array, using slow apply-method.
+     * Invoking every callback function.
      *
      */
-    if (isArray(args)) {
-        for (i = 0, j = callbacks[type].length; i < j; i++) {
-            if (callbacks[type][i]._alive) {
-                callbacks[type][i]._callback.apply(callbacks[type][i], args);
-            }
-        }
-
-    /*
-     *
-     * Otherwise using faster call-method.
-     *
-     */
-    } else {
-        for (i = 0, j = callbacks[type].length; i < j; i++) {
-            if (callbacks[type][i]._alive) {
-                callbacks[type][i]._callback.call(callbacks[type][i], args);
-            }
+    for (i = 0, j = callbacks[type].length; i < j; i++) {
+        if (callbacks[type][i]._alive) {
+            callbacks[type][i]._callback(args, callbacks[type][i]);
         }
     }
 
@@ -293,7 +262,7 @@ Callbacks.fire = function (type, args) {
 
     /*
      *
-     * ...and so it shall. Looping all listeners and removing all dead ones.
+     * ...and so they shall. Looping all listeners and removing all dead ones.
      *
      */
     for (i = callbacks[type].length; i--; ) {
