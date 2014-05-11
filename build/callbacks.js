@@ -1,6 +1,6 @@
 /*
  *
- * Callbacks v1.0.0
+ * Callbacks v1.0.1
  * http://github.com/vanils/callbacks
  *
  * Copyright 2014, Matti Mehtonen
