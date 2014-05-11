@@ -43,8 +43,8 @@ A simple library for javaScript callbacks. Does not have dependency on any other
     
 #### Firing with argument
 
-    Callbacks.on('my-event', function (arg) {
-        console.log(arg);
+    Callbacks.on('my-event', function (a) {
+        console.log(a);
     });
 
     Callbacks.fire('my-event', 'Hello World!');
@@ -69,7 +69,7 @@ A simple library for javaScript callbacks. Does not have dependency on any other
 
 #### Remove within callback function
 
-    Callbacks.on('my-event', function (arg, listener) {
+    Callbacks.on('my-event', function (a, listener) {
         listener.remove();
     });
     
